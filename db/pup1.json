@@ -1,0 +1,21 @@
+{
+  "pup1": [{
+    "id": 1,
+    "name": "Rocky",
+    "bio": "Likes to run after birds",
+    "img": "",
+    "favFoodId": 3
+  }, {
+    "id": 2,
+    "name": "Dunkle",
+    "bio": "Loves baths and rainy days",
+    "img": "",
+    "favFoodId": 2
+  }, {
+    "id": 3,
+    "name": "Margo",
+    "bio": "Friends with many cats",
+    "img": "",
+    "favFoodId": 2
+  }]
+}
