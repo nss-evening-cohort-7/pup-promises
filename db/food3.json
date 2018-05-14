@@ -1,0 +1,13 @@
+{
+  "type": "fish",
+  "food1": [{
+    "id": 1,
+    "name": "fish jerky"
+  }, {
+    "id": 2,
+    "name": "freeze dried salmon"
+  }, {
+    "id": 3,
+    "name": "crunchy fish skin"
+  }]
+}

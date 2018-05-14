@@ -1,0 +1,13 @@
+{
+  "type": "bugs",
+  "food1": [{
+    "id": 1,
+    "name": "chirpies made with criket powder"
+  }, {
+    "id": 2,
+    "name": "picnic ants"
+  }, {
+    "id": 3,
+    "name": "cockroach cookies"
+  }]
+}

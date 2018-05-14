@@ -1,0 +1,13 @@
+{
+  "type": "chicken",
+  "food1": [{
+    "id": 1,
+    "name": "chicken jerky"
+  }, {
+    "id": 2,
+    "name": "chewy chicken chews"
+  }, {
+    "id": 3,
+    "name": "chicken & pb bones"
+  }]
+}
