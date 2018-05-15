@@ -65,6 +65,41 @@ const thirdPupJson = () => { // the IOU
       });
   });
 };
+const firstFoodJson = () => { // the IOU
+  return new Promise((resolve, reject) => {
+    $.get('../db/food1.json')
+      .done((data) => {
+        resolve(data.food1);
+      })
+      .fail((err) => {
+        reject('01 got an error', err);
+      });
+  });
+};
+
+const secondFoodJson = () => { // the IOU
+  return new Promise((resolve, reject) => {
+    $.get('../db/food2.json')
+      .done((data) => {
+        resolve(data.food2);
+      })
+      .fail((err) => {
+        reject('01 got an error', err);
+      });
+  });
+};
+
+const thirdFoodJson = () => { // the IOU
+  return new Promise((resolve, reject) => {
+    $.get('../db/food3.json')
+      .done((data) => {
+        resolve(data.food3);
+      })
+      .fail((err) => {
+        reject('01 got an error', err);
+      });
+  });
+};
 
 // const getAllPups = () => {
 //   let dogos = [];
@@ -97,13 +132,30 @@ const getAllPups = () => {
     });
 };
 
+const singlePup = () => {
+  let pup = {};
+  getAllPups().then((pups) => {
+    pup = pups[0];
+    // const foodId = pups[0].favFoodId;
+    return Promise.all([firstFoodJson(), secondFoodJson(), thirdFoodJson(),]);
+  }).then((foodz) => {
+    // const allTheFood = [...foodz[0], ...foodz[1], ...foodz[2],];
+    // allTheFood.filter((food) => {
+    //   if(pup.favFoodId === food.)
+    // })
+    pup.faveFoods = foodz;
+  });
+};
+
 const initializer = () => {
   // getAllPups();
   getAllPups().then((dogos) => {
     dom(dogos);
   });
+  singlePup();
 };
 
 module.exports = {
   initializer,
+  singlePup,
 };
