@@ -1,1 +1,6 @@
-document.getElementById('pups').innerHTML = 'Things are working!';
+const data = require('./data');
+require('./event');
+
+$(document).ready(() => {
+  data.initializer();
+});
