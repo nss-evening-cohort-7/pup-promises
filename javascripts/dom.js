@@ -29,11 +29,15 @@ const printPup = (pup) => {
   pupString += `</div>`;
   pupString += `</div>`;
   pupString += `</div>`;
-  outputDiv.html(pupString);
+  replaceDom(pupString);
 };
 
 const printToDom = (pupz) => {
   outputDiv.append(pupz);
+};
+
+const replaceDom = (pup) => {
+  outputDiv.html(pup);
 };
 
 module.exports = {
