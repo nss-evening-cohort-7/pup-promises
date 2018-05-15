@@ -94,9 +94,9 @@ const getAllPups = () => {
 
 const initializer = () => {
   getAllPups().then((dogos) => {
-    domString(dogos);
+    domString.domString(dogos);
   });
-  singlePup();
+  // singlePup();
 };
 
 // const getAllPups = () => {
@@ -125,7 +125,9 @@ const firstFoodJSON  = () => {
   return new Promise((resolve, reject) => {
     $.get('../db/food1.json')
       .done((data) => {
-        resolve(data.food1);
+        const foodArray = data.food1;
+        foodArray.map(food => food.key = 1);
+        resolve(foodArray);
       })
       .fail((err) => {
         reject(`OI got an Error!`, err);
@@ -137,7 +139,9 @@ const secondFoodJSON  = () => {
   return new Promise((resolve, reject) => {
     $.get('../db/food2.json')
       .done((data) => {
-        resolve(data.food2);
+        const foodArray = data.food2;
+        foodArray.map(food => food.key = 2);
+        resolve(foodArray);
       })
       .fail((err) => {
         reject(`OI got an Error!`, err);
@@ -149,7 +153,9 @@ const thirdFoodJSON  = () => {
   return new Promise((resolve, reject) => {
     $.get('../db/food3.json')
       .done((data) => {
-        resolve(data.food3);
+        const foodArray = data.food3;
+        foodArray.map(food => food.key = 3);
+        resolve(foodArray);
       })
       .fail((err) => {
         reject(`OI got an Error!`, err);
@@ -159,11 +165,19 @@ const thirdFoodJSON  = () => {
 
 const singlePup = () => {
   let pup = {};
-  getAllPups().then((pups) => {
+  return getAllPups().then((pups) => {
     pup = pups[0];
     return Promise.all([firstFoodJSON(), secondFoodJSON(), thirdFoodJSON(),]);
   }).then((foodz) => {
-    pup.favFoods = foodz;
+    const allTheFood = [...foodz[0], ...foodz[1], ...foodz[2],];
+    const matching = allTheFood.filter((food) => {
+      if (pup.favFoodId === food.key) {
+        return true;
+      };
+      return false;
+    });
+    pup.favFood = matching;
+    return Promise.resolve(pup);
   });
 };
 
